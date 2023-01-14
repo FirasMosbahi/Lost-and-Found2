@@ -20,7 +20,6 @@ namespace LostAndFound2.Controllers
             Item item = _unitOfWork.ItemRepository.GetById(id);
             if (HttpContext.Session.GetString("id") == item.Owner.Id.ToString())
             {
-                HttpContext.Session.SetString("item", id.ToString());
                 return View();
             }
             return RedirectToAction("Login", "User");
@@ -30,22 +29,24 @@ namespace LostAndFound2.Controllers
         {
             Item item = _unitOfWork.ItemRepository.GetById(int.Parse(HttpContext.Session.GetString("item")));
             if (form["Name"] != "")
-                item.Name = form["Name"];
+                item.Name = form["Name"].ToString();
             if (form["Color"] != "")
-                item.Color = form["Color"];
+                item.Color = form["Color"].ToString();
             if (form["Category"] != "")
-                item.Category = form["Category"];
+                item.Category = form["Category"].ToString();
             if (form["Description"] != "")
-                item.Category = form["Description"];
+                item.Category = form["Description"].ToString();
+            if (form["PhotoLink"] != "")
+                item.PhotoLink = form["PhotoLink"].ToString();
             _unitOfWork.Complete();
-            ViewData["success"] = "item modified successfuly";
+            HttpContext.Session.SetString("success", "item modified successfuly");
             return RedirectToAction("MyItems", "Item");
         }
         public IActionResult DeleteItem(int id)
         {
             _unitOfWork.ItemRepository.Delete(_unitOfWork.ItemRepository.GetById(id));
             _unitOfWork.Complete();
-            ViewData["success"] = "item deleted successfuly";
+            HttpContext.Session.SetString("success", "item deleted successfuly");
             return RedirectToAction("MyItems", "Item");
         }
     }
