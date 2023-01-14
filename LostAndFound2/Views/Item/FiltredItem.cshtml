@@ -6,20 +6,28 @@
 }
 @model List<LostAndFound2.Models.Item>
 <div class="text-center">
-    <h1 class="display-4">The items that match your filters :</h1>
-    @foreach (LostAndFound2.Models.Item item in Model)
-    {
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src=@item.PhotoLink alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">@item.Name</h5>
-                <p class="card-text">@item.Description</p>
+    <div class="row mb-2">
+        <h1 style="font-size:400%; font-family:Times New Roman; color:DarkCyan;">Matching Items</h1>
+    </div>
+    <div class="row">
+
+        @foreach (LostAndFound2.Models.Item item in Model)
+        {
+
+            <div class="card mb-2 mx-1" style="width: 20rem;">
+                <div class="card-body">
+                    <img src=@item.PhotoLink alt="Missed Item Image" />
+                    <div style="margin-top: 15px;">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text"> @item.Description</p>
+                    </div>
+                </div>
+
+                <div class="card-footer" style="color: gray;">
+                    Category: @item.Category | Color: @item.Color
+                    <p>Found By: @item.Owner.Name (@item.Owner.Phone)</p>
+                </div>
+
             </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Category : @item.Category</li>
-                <li class="list-group-item">color : @item.Category</li>
-                <li class="list-group-item">Finder phone : @item.Owner.Phone</li>
-            </ul>
-        </div>
-    }
-</div>
+        }
+    </div>

@@ -8,28 +8,10 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
-    @if(ViewData["danger"] != null){
-        <div class="danger danger-warning danger-dismissible fade show" role="alert">
-            <strong>Error : </strong> @ViewData["danger"].
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    }
-    @if (ViewData["success"] != null)
-    {
-        <div class="success success-warning success-dismissible fade show" role="alert">
-            <strong>Success : </strong> @ViewData["success"].
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    }
-
     <div class="main">
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color: #84fab0;background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5)); background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Lost and Found</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Lost&Found</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -40,21 +22,24 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Item" asp-action="Index">All items</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Item" asp-action="Index">All Items</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="MyItems" asp-action="Index">My items</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Item" asp-action="AddItem">Add Item</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Item" asp-action="FindItem">Find an item</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="MyItems" asp-action="Index">My Items</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Item" asp-action="FindItem">Find An Item</a>
+                        </li>
+                        <li class="nav-item ms-auto">
                             <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="SignUp">Sign up</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item ">
                             <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Login">Log in</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item ">
 
                             <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Logout">Log out</a>
                         </li>

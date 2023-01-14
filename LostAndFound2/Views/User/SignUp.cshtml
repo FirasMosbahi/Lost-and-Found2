@@ -9,20 +9,43 @@
     <h1>Welcome dear user</h1>
     <h2>Sign up to join us </br> it is free and secure</h2>
 </div>
-<div>
-    @using (Html.BeginForm("SignUp" , "User" , FormMethod.Post))
-    {
-        @Html.Label("Name :")
-        @Html.TextBox("Name")
-        <br/>
-        @Html.Label("Phone Number :")
-        @Html.TextBox("Phone" , new {@type = "number"})
-        <br/>
-        @Html.Label("Password :")
-        @Html.Password("Password")
-        <br />
-        @Html.Label("Repeat Password :")
-        @Html.Password("Repeted_Password")
-        <button type="submit">Sign up</button>
-    }
-</div>
+
+<div class="mask d-flex align-items-center h-100 gradient-custom-3" style="background: #84fab0; background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5)); background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5)) ;padding: 3%;">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5" style="color: DarkCyan ;">Create an account</h2>
+
+                @using (Html.BeginForm("Signup" , "User" , FormMethod.Post))
+                {
+                  <div class="form-outline mb-2">
+                    <input type="text" id="name" placeholder="Your Name" name="Name"size="40" maxlength="40"class="form-control form-control-lg"  required />
+                    <label class="form-label" for="name"></label>
+                  </div>
+
+                  <div class="form-outline mb-2">
+                    <input type="number" id="number" placeholder="Your Phone Number" name="Phone" pattern="[0-9]" class="form-control form-control-lg" required />
+                    <label class="form-label" for="number"></label>
+                  </div>
+
+                  <div class="form-outline mb-2">
+                    <input type="password" id="pass" name="Password" placeholder="Your Password" class="form-control form-control-lg" required/>
+                    <label class="form-label" for="pass"></label>
+                  </div>
+
+                  <div class="form-outline ">
+                    <input type="password" id="repeatedpass" name="Repeted_Password" placeholder="Repeat Your Password"  class="form-control form-control-lg" required/>
+                    <label class="form-label" for="repeatedpass"></label>
+                  </div>
+                  <div class="d-flex justify-content-center">
+                    <button type="submit"
+                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body "  style="background: #84fab0; background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1)); background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))">Register</button>
+                  </div>
+                  }
+            </div>
+          </div>
+        </div>
+      </div>
+<div>    

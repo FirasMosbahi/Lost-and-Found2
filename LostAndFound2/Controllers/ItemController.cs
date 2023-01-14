@@ -35,7 +35,7 @@ namespace LostAndFound2.Controllers
                 Item item = new Item(form["Name"].ToString() , form["Description"].ToString() , form["Color"].ToString() , form["Image_Link"].ToString(), form["Category"].ToString());
                 user.Items.Add(item);
                 _unitOfWork.Complete();
-                ViewData["success"] = "Item created successfuly";
+                HttpContext.Session.SetString("success", "Item created successfuly");
             }catch(Exception ex)
             {
                 Debug.WriteLine(ex.Message);
