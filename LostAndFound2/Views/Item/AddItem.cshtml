@@ -10,7 +10,7 @@
     <h2>Fill the form to add new items</h2>
 </div>
 <div>
-    @using (Html.BeginForm("AddItem", "Item", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("AddItem", "Item", FormMethod.Post))
     {
         @Html.Label("Name :")
         @Html.TextBox("Name")

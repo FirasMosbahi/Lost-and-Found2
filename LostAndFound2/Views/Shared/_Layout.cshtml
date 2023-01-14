@@ -8,8 +8,22 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
-    @if(ViewBag.danger != null){
-        <div class="alert alert-danger" role="alert">@ViewBag.danger</div>
+    @if(ViewData["danger"] != null){
+        <div class="danger danger-warning danger-dismissible fade show" role="alert">
+            <strong>Error : </strong> @ViewData["danger"].
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+    @if (ViewData["success"] != null)
+    {
+        <div class="success success-warning success-dismissible fade show" role="alert">
+            <strong>Success : </strong> @ViewData["success"].
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
     }
 
     <div class="main">
@@ -29,7 +43,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Item" asp-action="Index">All items</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Item" asp-action="MyItems">My items</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="MyItems" asp-action="Index">My items</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Item" asp-action="FindItem">Find an item</a>
