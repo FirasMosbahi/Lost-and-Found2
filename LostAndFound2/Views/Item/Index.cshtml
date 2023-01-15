@@ -25,7 +25,9 @@
 
                 <div class="card-footer" style="color: gray;">
                     Category: @item.Category | Color: @item.Color
-                    <p>Found By: @item.Owner.Name (@item.Owner.Phone)</p>
+                    @if(item.Owner != null){
+                        <p>Found By: @item.Owner.Name @item.Owner.Phone</p>
+                    }
                 </div>
 
             </div>
