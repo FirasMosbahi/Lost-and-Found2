@@ -31,7 +31,6 @@ namespace LostAndFound2.Data
                 if (_Singleton == null)
                 {
                     _Singleton = Instantiate_DBContext();
-                    Debug.WriteLine("Instantiating a new university context");
                 }
                 return _Singleton;
             }
