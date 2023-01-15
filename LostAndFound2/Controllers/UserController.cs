@@ -34,7 +34,7 @@ namespace LostAndFound2.Controllers
                 {
                     HttpContext.Session.SetString("id", _unitOfWork.UserRepository.Find(u => u.Name == form["Name"].ToString()).First().Id.ToString());
                     HttpContext.Session.SetString("danger", "User connected successfuly");
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Item");
                 }
             }      
         }
@@ -61,7 +61,7 @@ namespace LostAndFound2.Controllers
             _unitOfWork.UserRepository.Add(new Models.User(form["Name"].ToString(), form["Password"].ToString(), long.Parse(form["Phone"])));
             _unitOfWork.Complete();
             HttpContext.Session.SetString("danger", "User created successfuly");
-            return RedirectToAction("Index", "Home");          
+            return RedirectToAction("Login", "User");          
         }
         [HttpGet]
         public IActionResult LogOut()
